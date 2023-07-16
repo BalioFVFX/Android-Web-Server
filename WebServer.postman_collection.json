@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "18e9d071-7d7c-4761-8755-4aded9e9ebac",
+		"name": "WebServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Weather",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.103:8080/weather?location=sofia",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"103"
+					],
+					"port": "8080",
+					"path": [
+						"weather"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "sofia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "About",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.103:8080/about",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"103"
+					],
+					"port": "8080",
+					"path": [
+						"about"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Home",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://192.168.0.103:8080/home",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"103"
+					],
+					"port": "8080",
+					"path": [
+						"home"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

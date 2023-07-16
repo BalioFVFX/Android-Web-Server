@@ -1,7 +1,7 @@
 # Android-Web-Server
 ![Preview](https://github.com/BalioFVFX/Android-Web-Server/blob/main/media/preview.gif?raw=true)
-Android app that turns your device into a Web server
 
+[Fullscreen](https://youtu.be/V9r-Y78ewrs)
 ## How does it work?
 ![Overview](https://raw.githubusercontent.com/BalioFVFX/Android-Web-Server/987a983f4b3e3e8f3bb533c495b7d12b202e2f24/media/overview.svg)
 The app starts a Thread that uses ServerSocket to allow connections. Each connection is then processed on a separate Thread.

@@ -1,4 +1,5 @@
 # Android-Web-Server
+![Preview](https://github.com/BalioFVFX/Android-Web-Server/blob/main/media/preview.gif?raw=true)
 Android app that turns your device into a Web server
 
 ## How does it work?

@@ -26,5 +26,9 @@ On the host device, the WebServer could be reached through the browser on the fo
 
 As mentioned above, the WebServer can return JSON responses. The easiest way to test this is to use an app like Postman. Make sure that the `Accept` header has the following value `application/json`. A ready-to-be-used Postman collection can be downloaded from [here](https://github.com/BalioFVFX/Android-Web-Server/blob/main/WebServer.postman_collection.json).
 
+### Custom Endpoints
+Besides the default endpoints `/home`, `about`, and `/weather` it is possible to define custom endpoints. This can be done through the Endpoints screen.
+![Custom Endpoints preview](https://github.com/BalioFVFX/Android-Web-Server/blob/main/media/custom_endpoints.gif?raw=true)
+
 ## Credits
 [Weather data by Open-Meteo.com](https://open-meteo.com/)

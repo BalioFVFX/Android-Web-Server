@@ -28,6 +28,7 @@ As mentioned above, the WebServer can return JSON responses. The easiest way to 
 
 ### Custom Endpoints
 Besides the default endpoints `/home`, `about`, and `/weather` it is possible to define custom endpoints. This can be done through the Endpoints screen.
+
 ![Custom Endpoints preview](https://github.com/BalioFVFX/Android-Web-Server/blob/main/media/custom_endpoints.gif?raw=true)
 
 ## Credits

@@ -77,7 +77,7 @@ class ClientWorker(
             outputStream.silentClose()
         } catch (exception: Exception) {
             snapshot = null
-            Logger.d("TAG", "Exception")
+            Logger.d(TAG, "Exception")
         } finally {
             client.silentClose()
         }

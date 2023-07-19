@@ -3,7 +3,7 @@ package com.webserver
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.webserver.databinding.ActivityMainBinding
+import com.webserver.databinding.ActivityServerBinding
 import com.webserver.server.ClientWorker
 import com.webserver.server.ConnectionListener
 import com.webserver.server.ConnectionSnapshot
@@ -11,25 +11,26 @@ import com.webserver.server.EndpointHandler
 import com.webserver.server.WebServer
 
 
-class MainActivity : AppCompatActivity(), ConnectionListener {
+class ServerActivity : AppCompatActivity(), ConnectionListener {
 
     private lateinit var webServer: WebServer
 
     private lateinit var state: MainUiState
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityServerBinding
 
     private val adapter = MainRecyclerAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityServerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         webServer = WebServer(
             clientWorker = ClientWorker(
                 endpointHandler = EndpointHandler(
-                    deviceManager = DeviceManager(this.applicationContext)
+                    deviceManager = DeviceManager(this.applicationContext),
+                    endpointStorage = WebServerApp.endpointStorage
                 )
             ),
             listener = this

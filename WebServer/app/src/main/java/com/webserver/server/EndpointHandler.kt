@@ -1,6 +1,7 @@
 package com.webserver.server
 
 import com.webserver.DeviceManager
+import com.webserver.EndpointStorage
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -11,10 +12,12 @@ import java.net.URL
 
 
 class EndpointHandler(
-    private val deviceManager: DeviceManager
+    private val deviceManager: DeviceManager,
+    private val endpointStorage: EndpointStorage,
 ) {
 
     fun handle(endpoint: String, acceptHeader: AcceptHeader): Response {
+        // Default endpoints
         val response = when (endpoint) {
             "home" -> handleHome(acceptHeader)
             "about" -> handleAbout(acceptHeader)
@@ -22,6 +25,7 @@ class EndpointHandler(
         }
 
         if (response == null) {
+            // Default endpoint
             if (endpoint.startsWith("weather")) {
                 return handleWeather(
                     endpoint = endpoint,
@@ -29,10 +33,27 @@ class EndpointHandler(
                     acceptHeader = acceptHeader
                 )
             }
+
+            // User-defined endpoints
+            val content = endpointStorage.getEndpointContent(endpoint)
+
+            if (content != null) {
+                endpointStorage.markViewed(endpoint)
+                return handleUserDefinedEndpoint(content)
+            }
+
             return handleUnknown(endpoint, acceptHeader)
         } else {
             return response
         }
+    }
+
+    private fun handleUserDefinedEndpoint(content: String) : Response {
+        return Response.HtmlResponse(
+            createHeaders(content.length, AcceptHeader.TEXT_HTML),
+            System.currentTimeMillis(),
+            content
+        )
     }
 
     private fun handleHome(acceptHeader: AcceptHeader): Response {
